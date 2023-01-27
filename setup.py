@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="PyDiffeq",
+    name="py_diffeq",
     version="0.0.1",
     author="Ilya Kostomarov",
     author_email="",
