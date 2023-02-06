@@ -1,11 +1,6 @@
 import numpy as np
 
-from methods.euler_method import EulerMethod
-from methods.implicit_euler_method import ImplicitEulerMethod
-from methods.middle_poind_method import MiddlePointMethod
-from methods.rk2_method import RK2Method
-from methods.rk4_method import RK4Method
-from methods.trapezoid_method import TrapezoidMethod
+from pydiffeq.methods import EulerMethod, RK2Method, RK4Method, ImplicitEulerMethod, TrapezoidMethod, MiddlePointMethod
 
 
 class ODE_Library:
