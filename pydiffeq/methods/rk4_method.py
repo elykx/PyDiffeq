@@ -1,6 +1,6 @@
 import numpy as np
 
-from ode_solver import ODE_Solver
+from pydiffeq.ode_solver import ODE_Solver
 
 
 class RK4Method(ODE_Solver):
