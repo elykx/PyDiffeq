@@ -5,6 +5,14 @@ from pydiffeq.methods import EulerMethod, RK2Method, RK4Method, ImplicitEulerMet
 
 class ODE_Library:
     def __init__(self, system, method, decimal_place=6):
+        """
+        Инициализация библиотеки для выбора метода решения системы оду.
+
+        Parameters:
+        - system: система оду
+        - method: метод решения
+        - decimal_place: параметр округления
+        """
         self.system = system
         self.method = method
         self.decimal_place = decimal_place
