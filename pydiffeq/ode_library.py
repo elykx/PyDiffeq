@@ -1,6 +1,7 @@
 import numpy as np
 
-from pydiffeq.methods import EulerMethod, RK2Method, RK4Method, ImplicitEulerMethod, TrapezoidMethod, MiddlePointMethod
+from pydiffeq.methods import EulerMethod, RK2Method, RK4Method, ImplicitEulerMethod, TrapezoidMethod, MiddlePointMethod,\
+    KuttaMersonMethod, RKFMethod
 
 
 class ODE_Library:
@@ -32,6 +33,10 @@ class ODE_Library:
             solution = TrapezoidMethod(self.system).solve(t, y0)
         if self.method == 'MIDDLE':
             solution = MiddlePointMethod(self.system).solve(t, y0)
+        if self.method == 'KM':
+            solution = KuttaMersonMethod(self.system).solve(t, y0)
+        if self.method == 'RKF':
+            solution = RKFMethod(self.system).solve(t, y0)
 
         if solution is not None:
             return np.round(solution, self.decimal_place)
