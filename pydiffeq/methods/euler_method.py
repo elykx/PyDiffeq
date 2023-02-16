@@ -14,4 +14,4 @@ class EulerMethod(ODE_Solver):
             y += dt * self.system.func(y, t)
             y0 = copy(y)
             solution.append(y0)
-        return np.array(solution)
+        return np.array(solution), t_eval

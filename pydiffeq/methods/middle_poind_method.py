@@ -16,4 +16,4 @@ class MiddlePointMethod(ODE_Solver):
             y += dt * k2
             y0 = copy(y)
             solution.append(y0)
-        return np.array(solution)
+        return np.array(solution), t_eval

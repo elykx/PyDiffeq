@@ -18,4 +18,4 @@ class RK4Method(ODE_Solver):
             y += (k1 + 2*k2 + 2*k3 + k4) / 6
             y0 = copy(y)
             solution.append(y0)
-        return np.array(solution)
+        return np.array(solution), t_eval

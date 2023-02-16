@@ -16,4 +16,4 @@ class TrapezoidMethod(ODE_Solver):
             y += dt / 2 * (k1 + k2)
             y0 = copy(y)
             solution.append(y0)
-        return np.array(solution)
+        return np.array(solution), t_eval

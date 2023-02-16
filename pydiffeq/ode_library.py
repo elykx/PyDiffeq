@@ -19,25 +19,25 @@ class ODE_Library:
         self.decimal_place = decimal_place
 
     def solve(self, t, y0):
-        solution = None
+        solution, t_eval = None, None
 
         if self.method == 'EULER':
-            solution = EulerMethod(self.system).solve(t, y0)
+            solution, t_eval = EulerMethod(self.system).solve(t, y0)
         if self.method == 'RK2':
-            solution = RK2Method(self.system).solve(t, y0)
+            solution, t_eval = RK2Method(self.system).solve(t, y0)
         if self.method == 'RK4':
-            solution = RK4Method(self.system).solve(t, y0)
+            solution, t_eval = RK4Method(self.system).solve(t, y0)
         if self.method == 'IMPLICIT_EULER':
-            solution = ImplicitEulerMethod(self.system).solve(t, y0)
+            solution, t_eval = ImplicitEulerMethod(self.system).solve(t, y0)
         if self.method == 'TRAPEZOID':
-            solution = TrapezoidMethod(self.system).solve(t, y0)
+            solution, t_eval = TrapezoidMethod(self.system).solve(t, y0)
         if self.method == 'MIDDLE':
-            solution = MiddlePointMethod(self.system).solve(t, y0)
+            solution, t_eval = MiddlePointMethod(self.system).solve(t, y0)
         if self.method == 'KM':
-            solution = KuttaMersonMethod(self.system).solve(t, y0)
+            solution, t_eval = KuttaMersonMethod(self.system).solve(t, y0)
         if self.method == 'RKF':
-            solution = RKFMethod(self.system).solve(t, y0)
+            solution, t_eval = RKFMethod(self.system).solve(t, y0)
 
         if solution is not None:
-            return np.round(solution, self.decimal_place)
-        return solution
+            return np.round(solution, self.decimal_place), np.round(t_eval, self.decimal_place)
+        return solution, t_eval

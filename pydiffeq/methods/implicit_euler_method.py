@@ -14,4 +14,4 @@ class ImplicitEulerMethod(ODE_Solver):
             y = y + dt * self.system.func(y + dt * self.system.func(y, t), t + dt)
             y0 = copy(y)
             solution.append(y0)
-        return np.array(solution)
+        return np.array(solution), t_eval

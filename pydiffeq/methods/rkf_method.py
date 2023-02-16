@@ -21,6 +21,7 @@ class RKFMethod(ODE_Solver):
         y = copy(y0)
         solution = [y0]
         t = t_eval[0]
+        t_list = [t_eval[0]]
         while t < t_eval[-1]:
             if t + dt > t_eval[-1]:
                 dt = t_eval[-1] - t
@@ -30,12 +31,14 @@ class RKFMethod(ODE_Solver):
                 t_i = t + c[i] * dt
                 k[i] = self.system.func(y_i, t_i)
             err = np.abs(np.dot(b-b_star, k)*dt) / (atol + rtol * np.abs(y))
-            if err > 1:
-                dt *= 0.8 * err**(-0.25)
+            err_max = np.max(err)
+            if err_max > 1:
+                dt *= 0.8 * err_max**(-0.25)
             else:
                 y += np.dot(b, k) * dt
                 t += dt
-                dt *= 0.8 * err**(-0.2)
+                dt *= 0.8 * err_max**(-0.2)
                 y0 = copy(y)
                 solution.append(y0)
-        return np.array(solution)
+                t_list.append(t)
+        return np.array(solution), t_list
