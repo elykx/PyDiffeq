@@ -13,6 +13,7 @@ class ODE_Solver(ABC):
         self.system = system
         self.decimal_place = decimal_place
 
+
     @abstractmethod
     def solve(self, t_eval, y0):
         """
