@@ -11,6 +11,7 @@ class ExplicitEulerMethod(ODE_Solver):
         y = copy(y0)
         solution = [y0]
         for t in t_eval[1:]:
+            #Явная схема
             k = dt * self.system.func(y, t)
             y += k
             y0 = copy(y)

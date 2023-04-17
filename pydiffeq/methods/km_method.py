@@ -5,7 +5,6 @@ import numpy as np
 from pydiffeq.ode_solver import ODE_Solver
 
 
-# Kutta-Merson
 class KuttaMersonMethod(ODE_Solver):
     def solve(self, t_eval, y0):
         dt = t_eval[1] - t_eval[0]
