@@ -3,7 +3,7 @@ requires = ["numpy >= 1.24.0", "setuptools>=40.8.0"]
 build-backend = "setuptools.build_meta:__legacy__"
 [project]
 name = "PyDiffeqq"
-version = "0.2.2"
+version = "0.3"
 authors = [
   { name="Ilya Kostomarov", email="kostomarov.2001@mail.ru" },
 ]
